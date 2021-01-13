@@ -1,1 +1,1 @@
-- https://www.notion.so/3-7d1523ef66494422a5c424a240976cb1
+- https://github.com/deeplearningfromscratch2/deep-learning-from-scratch-3
