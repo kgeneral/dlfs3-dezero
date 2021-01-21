@@ -10,5 +10,5 @@ class Function:
         output = Variable(y)
         return output
 
-    def forward(self, x: Number):
+    def forward(self, x: Number) -> Number:
         raise NotImplementedError()
