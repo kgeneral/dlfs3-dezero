@@ -1,6 +1,6 @@
 import numpy as np
 
-from lib.Function import Function
+from lib.Square import Square
 from lib.Variable import Variable
 
 # variable
@@ -28,7 +28,7 @@ print(y.ndim)
 print("\n---function---\n")
 
 x = Variable(np.array(10))
-f = Function()
+f = Square()
 y = f(x)
 
 print(type(y))
