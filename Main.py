@@ -1,10 +1,8 @@
-class Variable:
-    def __init__(self, data):
-        self.data = data
-
-
 import numpy as np
 
+from lib.Variable import Variable
+
+# variable
 data = np.array(1.0)
 x = Variable(data)
 print(x.data)
