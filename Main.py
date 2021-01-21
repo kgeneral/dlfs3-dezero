@@ -1,5 +1,6 @@
 import numpy as np
 
+from lib.Exp import Exp
 from lib.Square import Square
 from lib.Variable import Variable
 
@@ -33,3 +34,18 @@ y = f(x)
 
 print(type(y))
 print(y.data)
+
+# exp
+print("\n---exp---\n")
+
+A = Square()
+B = Exp()
+C = Square()
+
+x = Variable(np.array(0.5))
+a = A(x)
+b = B(a)
+y = C(b)
+print(y.data)
+
+
