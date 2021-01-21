@@ -1,5 +1,6 @@
 import numpy as np
 
+from lib.Diff import numerical_diff
 from lib.Exp import Exp
 from lib.Square import Square
 from lib.Variable import Variable
@@ -48,4 +49,9 @@ b = B(a)
 y = C(b)
 print(y.data)
 
-
+# numerical_diff
+print("\n---numerical_diff---\n")
+f = Square()
+x = Variable(np.array(2.0))
+dy = numerical_diff(f, x)
+print(dy)
