@@ -1,4 +1,4 @@
-from numbers import Number
+import numpy as np
 
 from lib.Variable import Variable
 
@@ -10,5 +10,5 @@ class Function:
         output = Variable(y)
         return output
 
-    def forward(self, x: Number) -> Number:
+    def forward(self, x: np.ndarray) -> np.ndarray:
         raise NotImplementedError()

@@ -1,7 +1,7 @@
-from numbers import Number
+import numpy as np
 
 
 class Variable:
-    def __init__(self, data: Number):
+    def __init__(self, data: np.ndarray):
         self.data = data
         self.grad = None
