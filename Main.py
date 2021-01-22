@@ -119,3 +119,18 @@ A = a.creator
 x = A.input
 x.grad = A.backward(a.grad)
 print(x.grad)
+
+# backward with recursive
+print("\n---backward with recursive---\n")
+A = Square()
+B = Exp()
+C = Square()
+
+x = Variable(np.array(0.5))
+a = A(x)
+b = B(a)
+y = C(b)
+
+y.grad = np.array(1.0)
+y.backward()
+print(x.grad)
