@@ -5,17 +5,19 @@ from lib.Variable import Variable
 
 
 class Function:
-    def __call__(self, input: Variable) -> Variable:
-        x = input.data
-        y = self.forward(x)
-        output = Variable(lib.as_array(y))
-        output.set_creator(self)
-        self.input = input  # memorize input variable
-        self.output = output  # memorize output
-        return output
+    def __call__(self, inputs: [Variable]) -> Variable:
+        xs = [x.data for x in inputs]
+        ys = self.forward(xs)
+        outputs = [Variable(lib.as_array(y)) for y in ys]
 
-    def forward(self, x: np.ndarray) -> np.ndarray:
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs  # memorize input variable
+        self.outputs = outputs  # memorize output
+        return outputs
+
+    def forward(self, xs: np.ndarray) -> np.ndarray:
         raise NotImplementedError()
 
-    def backward(self, gy: np.ndarray) -> np.ndarray:
+    def backward(self, gys: np.ndarray) -> np.ndarray:
         raise NotImplementedError()
