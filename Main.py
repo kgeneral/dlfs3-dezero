@@ -120,8 +120,8 @@ x = A.input
 x.grad = A.backward(a.grad)
 print(x.grad)
 
-# backward with recursive
-print("\n---backward with recursive---\n")
+# backward with Variable class
+print("\n---backward Variable class---\n")
 A = Square()
 B = Exp()
 C = Square()
