@@ -10,3 +10,7 @@ x = Variable(np.array(0.5))
 y = square(exp(square(x)))
 y.backward()
 print(x.grad)
+
+# x = Variable(1.0) # TypeError: Datatype not supported : <class 'float'>
+
+
