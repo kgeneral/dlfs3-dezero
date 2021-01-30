@@ -1,6 +1,6 @@
 import numpy as np
 
-from lib import add, square
+from lib import add
 from lib.Variable import Variable
 
 print("\n---Add---\n")

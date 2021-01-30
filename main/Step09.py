@@ -1,7 +1,6 @@
 import numpy as np
 
 from lib import square, exp
-
 from lib.Variable import Variable
 
 print("\n---square, exp as method---\n")
