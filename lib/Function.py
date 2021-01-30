@@ -21,5 +21,5 @@ class Function:
     def forward(self, *xs) -> np.ndarray:
         raise NotImplementedError()
 
-    def backward(self, gys: np.ndarray) -> np.ndarray:
+    def backward(self, *gys) -> np.ndarray:
         raise NotImplementedError()
