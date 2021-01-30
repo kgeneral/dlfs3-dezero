@@ -26,9 +26,25 @@ class Variable:
             if not isinstance(gxs, tuple):
                 gxs = (gxs,)
 
+            print('f.inputs ----> ', ' '.join(map(str, f.inputs)))
+            print('gxs      ----> ', gxs)
+            print('zipped results ',
+                  ['x: ' + str(x).replace('\n', '').replace('\t', '') + ' / gx: ' + str(gx) for x, gx in
+                   zip(f.inputs, gxs)])
+            print('\n')
+
             for x, gx in zip(f.inputs, gxs):
                 x.grad = gx
 
                 if x.creator is not None:
                     funcs.append(x.creator)
 
+    def __str__(self):
+        data = np.array_str(self.data)
+
+        grad = None
+        if self.grad is not None:
+            grad = np.array_str(self.grad)
+
+        creator = self.creator
+        return '\n\tVaraible - data: {}, grad: {}, creator: {}'.format(data, grad, creator)

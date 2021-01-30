@@ -23,3 +23,8 @@ class Function:
 
     def backward(self, *gys) -> np.ndarray:
         raise NotImplementedError()
+
+    def __str__(self):
+        return "{}({})".format(self.__class__.__name__,
+                               ",".join([str(x.data) for x in self.inputs]) if self.inputs is not None else ""
+                               )
