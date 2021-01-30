@@ -37,7 +37,7 @@ class Variable:
                 if x.grad is None:
                     x.grad = gx
                 else:
-                    x.grad += gx
+                    x.grad = x.grad + gx
 
                 if x.creator is not None:
                     funcs.append(x.creator)

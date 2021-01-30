@@ -6,7 +6,7 @@ from lib.Variable import Variable
 print("\n---Add---\n")
 
 x = Variable(np.array(3.0))
-y = add(x, x)
+y = add(add(x, x), x)
 
 print('y', y.data)
 
