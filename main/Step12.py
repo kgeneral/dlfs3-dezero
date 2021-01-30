@@ -7,8 +7,8 @@ from lib.Variable import Variable
 
 print("\n---Add---\n")
 
-xs = [Variable(np.array(2)), Variable(np.array(3))]
+x0 = Variable(np.array(2))
+x1 = Variable(np.array(3))
 f = Add()
-ys = f(xs)
-y = ys[0]
+y = f(x0, x1)
 print(y.data)
