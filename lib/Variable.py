@@ -42,6 +42,9 @@ class Variable:
                 if x.creator is not None:
                     funcs.append(x.creator)
 
+    def cleargrad(self):
+        self.grad = None
+
     def __str__(self):
         data = np.array_str(self.data)
 
