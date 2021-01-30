@@ -47,7 +47,7 @@ class Variable:
 
         grad = None
         if self.grad is not None:
-            grad = np.array_str(self.grad)
+            grad = np.array_str(self.grad) if isinstance(self.grad, np.ndarray) else str(self.grad)
 
         creator = self.creator
         return '\n\tVaraible - data: {}, grad: {}, creator: {}'.format(data, grad, creator)
