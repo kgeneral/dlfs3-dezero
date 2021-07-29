@@ -24,3 +24,6 @@ b.nextRef = c
 # b also will be deleted : ref from a object has gone
 # c also will be deleted : ref from b object has gone
 a = b = c = None
+
+# be aware of circular reference
+# gc need to work for release "circular referenced objects"
