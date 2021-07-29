@@ -27,3 +27,4 @@ a = b = c = None
 
 # be aware of circular reference
 # gc need to work for release "circular referenced objects"
+# gc is an "expensive behavior"
