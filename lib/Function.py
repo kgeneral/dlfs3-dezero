@@ -12,6 +12,7 @@ class Function:
             ys = (ys,)
         outputs = [Variable(lib.as_array(y)) for y in ys]
 
+        self.generation = max([x.generation for x in inputs])
         for output in outputs:
             output.set_creator(self)
         self.inputs = inputs  # memorize input variable

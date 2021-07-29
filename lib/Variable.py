@@ -10,9 +10,11 @@ class Variable:
         self.data = data
         self.grad = None
         self.creator = None
+        self.generation = 0
 
     def set_creator(self, func):
         self.creator = func
+        self.generation = func.generation + 1
 
     def backward(self):
         if self.grad is None:
@@ -53,4 +55,5 @@ class Variable:
             grad = np.array_str(self.grad) if isinstance(self.grad, np.ndarray) else str(self.grad)
 
         creator = self.creator
-        return '\n\tVaraible - data: {}, grad: {}, creator: {}'.format(data, grad, creator)
+        generation = self.generation
+        return '\n\tVaraible - data: {}, grad: {}, creator: {}, generation: {}'.format(data, grad, creator, generation)
