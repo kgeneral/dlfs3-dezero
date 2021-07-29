@@ -61,7 +61,7 @@ def test_memory_usage():
 test_memory_usage()
 
 """
-python -m memory_profiler ./main/Step17.py
+$ python -m memory_profiler ./main/Step17.py
 
 before weakref
 
@@ -87,4 +87,9 @@ Line #    Mem usage    Increment  Occurences   Line Contents
     57    645.9 MiB    152.6 MiB          10           x = Variable(np.random.randn(10000000))
     58    645.9 MiB    457.8 MiB          10           y = square(square(square(x)))
 
+generate image of memory benchmarks
+
+$ pip install matplotlib
+$ mprof run ./main/Step17.py
+$ mprof plot -o image.png --backend agg
 """
