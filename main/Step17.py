@@ -1,4 +1,5 @@
 import numpy as np
+from memory_profiler import profile
 
 from lib import add, square, exp
 from lib.Function import Function
@@ -48,6 +49,42 @@ a = None
 print(b)
 
 print("\n---big data---\n")
-for i in range(10):
-    x = Variable(np.random.randn(10000))
-    y = square(square(square(x)))
+
+
+@profile
+def test_memory_usage():
+    for i in range(10):
+        x = Variable(np.random.randn(10000000))
+        y = square(square(square(x)))
+
+
+test_memory_usage()
+
+"""
+python -m memory_profiler ./main/Step17.py
+
+before weakref
+
+Filename: ./main/Step17.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    54     35.5 MiB     35.5 MiB           1   @profile
+    55                                         def test_memory_usage():
+    56   3087.5 MiB      0.0 MiB          11       for i in range(10):
+    57   2858.6 MiB    763.0 MiB          10           x = Variable(np.random.randn(10000000))
+    58   3087.5 MiB   2288.9 MiB          10           y = square(square(square(x)))
+    
+after weakref
+
+Filename: ./main/Step17.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    54     35.5 MiB     35.5 MiB           1   @profile
+    55                                         def test_memory_usage():
+    56    645.9 MiB      0.0 MiB          11       for i in range(10):
+    57    645.9 MiB    152.6 MiB          10           x = Variable(np.random.randn(10000000))
+    58    645.9 MiB    457.8 MiB          10           y = square(square(square(x)))
+
+"""
