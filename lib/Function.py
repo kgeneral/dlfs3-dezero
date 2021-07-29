@@ -1,4 +1,5 @@
 import numpy as np
+import weakref
 
 import lib
 from lib.Variable import Variable
@@ -16,7 +17,7 @@ class Function:
         for output in outputs:
             output.set_creator(self)
         self.inputs = inputs  # memorize input variable
-        self.outputs = outputs  # memorize output
+        self.outputs = [weakref.ref(output) for output in outputs]  # memorize output
         return outputs if len(outputs) > 1 else outputs[0]
 
     def forward(self, *xs) -> np.ndarray:
