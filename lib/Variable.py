@@ -20,6 +20,17 @@ class Variable:
         if self.grad is None:
             self.grad = np.ones_like(self.data)
 
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
         funcs = [self.creator]
         while funcs:
             f = funcs.pop()
@@ -42,7 +53,7 @@ class Variable:
                     x.grad = x.grad + gx
 
                 if x.creator is not None:
-                    funcs.append(x.creator)
+                    add_func(x.creator)
 
     def cleargrad(self):
         self.grad = None
