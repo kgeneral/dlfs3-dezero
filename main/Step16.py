@@ -23,3 +23,13 @@ print([f.generation for f in funcs])
 
 f = funcs.pop()
 print(f.generation)
+
+print("\n---Generation : backward---\n")
+
+x = Variable(np.array(2.0))
+a = square(x)
+y = add(square(a), square(a))
+y.backward()
+
+print(y.data)
+print(x.grad)
