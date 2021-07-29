@@ -46,3 +46,8 @@ a = None
 # even b has reference of a, a will be deleted
 # because b is weakref
 print(b)
+
+print("\n---big data---\n")
+for i in range(10):
+    x = Variable(np.random.randn(10000))
+    y = square(square(square(x)))
